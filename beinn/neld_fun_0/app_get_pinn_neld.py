@@ -414,35 +414,10 @@ class class_data:
         self.file_path =file_path
         self.neld_name=neld_name
         self.itera=index  
-        self.vertices_0=self.vertices_00=self.faces=np.array([[0,0,0]])
-        '''
-
-        self.vertices_0=vertices_0       = np.loadtxt(os.path.join(self.file_path, self.txt_vertices_0), dtype=float) 
-        
-        self.vertices_00=vertices_00      = np.loadtxt(os.path.join(self.file_path, self.txt_vertices_old), dtype=float)
-        self.faces=faces = np.loadtxt(os.path.join(self.file_path, self.txt_faces), dtype=int)
+        self.vertices_0=self.vertices_00=self.faces=np.array([[0,0,0]]) 
 
 
-        print(f'Starting analysis of {neld_name}')
-        print(f"Number of vertices: {len(vertices_0)}")
-        print(f"Number of vertices: {len(vertices_00)}")
-        print(f"Number of faces: {len(faces)}")
-        print(f"Number of vertices: {os.path.join(self.file_path, self.txt_vertices_0)}")
-        print(f"Number of vertices: {os.path.join(self.file_path, self.txt_vertices_old)}")
-        
-        self.inten={} 
-        for port in self.pre_portions:
-            self.inten[f'{port}_body']=np.zeros_like(vertices_00[:,0]) 
-            mmm=os.path.join(smod_path,f'intensity_{port}_segm.txt') 
-            if os.path.exists(mmm):  
-                self.inten[f'{port}_body']=mmm
-
-'''
-
-
-
-    # def update_output(mode,neldd, clusts,   metric, intensity_type, width, height, radius_level, radius_level_max,uoi_per,templ):
-    # def Get_output(self, path_head,model_suf,path,mode,neldd, clusts,    intensity_type, width, height ,templ,nbin,index=None,get_return=True,hide_button_tf=True): 
+ 
     def Get_output(self, path_head,model_suf,path,mode,  width, height ,templ,nbin,index=None,get_return=True,hide_button_tf=True): 
         neldd, clusts,    intensity_type=None,None,None
         path_train=self.path_train
@@ -456,9 +431,7 @@ class class_data:
                     data_studied=self.data_studied,
                     index=index,
                     ) 
-        print('---------',true_keys,path,mode,neldd,path_head,'---inte',intensity_type,'===',model_suf,self.model_sufix)
-        # print('---------',path_train['dest_smod_path'],self.path_file_sub[intensity_type][id_path] )
-        # self.smod_path=smod_path=self.path_file_sub[self.inten_file_sub[0]][id_path] 
+        print('---------',true_keys,path,mode,neldd,path_head,'---inte',intensity_type,'===',model_suf,self.model_sufix) 
         neld_name=self.neld_name 
         bcouleur=self.bcouleur
         fsize=self.fsize 
@@ -665,7 +638,7 @@ class class_data:
             import pickle
             with open(path_init_param, "rb") as f:
                 pm = pickle.load(f) 
-            time=np.loadtxt(os.path.join(path_1,f"time.txt"),dtype=float)
+            time=np.loadtxt(os.path.join(self.obj_org_path,f"time.txt"),dtype=float)
             nnn=time.shape[0]
             scatterr=[] 
 
