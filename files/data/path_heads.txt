@@ -1,0 +1,2 @@
+dnn_PINN_NELD___shear_harmonic_2_200_5_1000_train
+dnn_PINN_NELD___shear_harmonic_2_200_5_1000_test
