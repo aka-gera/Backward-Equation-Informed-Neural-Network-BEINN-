@@ -1016,7 +1016,7 @@ class app_run_param:
                                 dbc.Row([
                                     dbc.Col(
                                         dcc.Markdown(
-                                            "[View the full repository on GitHub](https://github.com/aka-gera/CURVATURE-BASED-MACHINE-LEARNING-FOR-AUTOMATED-SEGMENTATION-OF-neldRITIC-smodS)",
+                                            "[View the full repository on GitHub](https://github.com/aka-gera/Backward-Equation-Informed-Neural-Network-BEINN-/tree/main)",
                                             style={"textAlign": "center", "color": "white"}
                                         )
                                     )
