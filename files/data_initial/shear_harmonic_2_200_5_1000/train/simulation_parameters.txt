@@ -1,0 +1,10 @@
+flow = shear
+nPart = 2
+epsilon = 2.000
+beta = 1.000
+gamma = 1.000
+force = harmonic
+rcut = 30
+N = 200
+Nperiod = 5
+Nmarkov = 1000
