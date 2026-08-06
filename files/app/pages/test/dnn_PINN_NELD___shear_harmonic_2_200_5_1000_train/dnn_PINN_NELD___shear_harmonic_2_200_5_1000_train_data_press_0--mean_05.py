@@ -2,7 +2,7 @@
 
 import os, sys ,dash 
 sys.path.append(os.getcwd() ) 
-from neld_fun_0.side_bar import sidebar ,get_dnn,dnn_page 
+from beinn.neld_fun_0.side_bar import sidebar ,get_dnn,dnn_page 
 
 
 page_dir= '/test/dnn-pinn-neld---shear-harmonic-2-200-5-1000-train/press-0--mean-05/dnn-pinn-neld---shear-harmonic-2-200-5-1000-train-data-press-0--mean-05' 
