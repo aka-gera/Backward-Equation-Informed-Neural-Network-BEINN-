@@ -13,9 +13,7 @@ from tensorflow.keras.models import load_model
 DTYPE='float32' 
 import pickle 
 import pandas as pd
-import trimesh
-
-import shap   
+  
 DTYPE='float32' 
 DTYPE = tf.float32
   
