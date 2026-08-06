@@ -22,9 +22,7 @@ tf.config.run_functions_eagerly(True)
 from tensorflow.keras.models import load_model
 DTYPE='float32' 
 import pickle 
-import pandas as pd
-import trimesh
-
+import pandas as pd 
 import importlib
 import random
 np.random.seed(42)
