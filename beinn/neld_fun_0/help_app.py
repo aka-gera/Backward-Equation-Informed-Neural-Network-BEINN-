@@ -14,10 +14,9 @@ import subprocess
 import signal 
 import platform
 
+  
  
-from neld_data_1 import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,Nperiod,nma,g_names,dnn_modes
- 
-from neld_data_all import paraws,params
+from beinn.neld_data_all import paraws,params
  
 
 def restart_appsx():
