@@ -8,11 +8,7 @@ from sklearn.decomposition import PCA
 
 
 
-
-
-import networkx as nx
-import trimesh 
-
+ 
 def normalize(vec):
     min_val = np.min(vec)
     max_val = np.max(vec)
