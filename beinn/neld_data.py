@@ -48,9 +48,9 @@ path_0=os.getcwd()
  # 
 import sys,os
 DTYPE='float32'  
-from neld_fun_0.main_0 import  app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param
-from neld_pinn_0.run_0 import get_configs  
-# from neld_pinn_0 import run
+from beinn.neld_fun_0.main_0 import  app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param
+from beinn.neld_pinn_0.run_0 import get_configs  
+# from beinn.neld_pinn_0 import run
 
 file_path_org=os.getcwd()  #os.path.join(base_dir,'neld_analysis')# 
 file_path_data=os.path.join(os.path.dirname(file_path_org) ,'files','data_initial')

@@ -1,12 +1,12 @@
  
 import sys,os
 DTYPE='float32'  
-from neld_fun_0.main_0 import  app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param
+from beinn.neld_fun_0.main_0 import  app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param
  
 
 
-from neld_pinn_0.run_00 import get_neld_data,get_neld_data_train
-path_dict={'run':'neld_pinn_0.run_00'}
+from beinn.neld_pinn_0.run_00 import get_neld_data,get_neld_data_train
+path_dict={'run':'beinn.neld_pinn_0.run_00'}
 
 from neld_data_1_shear import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,Nperiod,nma,g_names,dnn_modes
 from neld_data_harmonic_2_shear import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,Nperiod,nma,g_names,dnn_modes

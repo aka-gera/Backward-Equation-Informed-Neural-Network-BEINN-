@@ -7,11 +7,11 @@ import random#
 import numpy as np
 
   
-from neld_fun_0.main_0 import  app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param
+from beinn.neld_fun_0.main_0 import  app_run_param,algorithm,algorithm_param,get_data, get_data_all ,get_dict_param
   
 
 
-path_dict={'run':'neld_pinn_0.run_00'}
+path_dict={'run':'beinn.neld_pinn_0.run_00'}
 
 from neld_data_2_shear import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,configs,nma,g_names
 
