@@ -4,7 +4,7 @@ import os, sys ,dash
 file_path_org=os.getcwd()
 sys.path.append(file_path_org ) 
 file_path_org=os.path.join(os.path.dirname(file_path_org) ,'files')
-from  neld_fun_0.app_param_test import app_param
+from  beinn.neld_fun_0.app_param_test import app_param
 from dash import callback  
 
 neld_names = ['d009']
