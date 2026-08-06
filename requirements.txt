@@ -83,3 +83,4 @@ tzdata==2025.2
 urllib3==2.4.0   
 Werkzeug==3.0.6
 wrapt==1.17.2 
+gdown==5.2.0
