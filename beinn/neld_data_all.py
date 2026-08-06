@@ -62,7 +62,7 @@ paraws[nam_gen]=paraw
 
 
 
-from neld_data_harmonic_2_shear import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,Nperiod,nma,g_names,dnn_modes,nam
+from beinn.neld_data_harmonic_2_shear import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,Nperiod,nma,g_names,dnn_modes,nam
   
 
 path_dict={'run':'beinn.neld_pinn_0.run_00'}
