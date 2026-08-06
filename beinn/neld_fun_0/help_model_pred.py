@@ -19,14 +19,14 @@ import shap
 DTYPE='float32' 
 DTYPE = tf.float32
   
-from neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files,remove_directory,safe_id
-from neld_fun_0.side_bar import  get_text_dash_train,get_text_dash_all,get_text_dash_test,get_text_dash_dnn,get_text_dash_app,get_text_dash_main_2
+from beinn.neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files,remove_directory,safe_id
+from beinn.neld_fun_0.side_bar import  get_text_dash_train,get_text_dash_all,get_text_dash_test,get_text_dash_dnn,get_text_dash_app,get_text_dash_main_2
 device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"  
 from tqdm import tqdm 
 
-from neld_fun_0.help_save_iou import iou_train    
+from beinn.neld_fun_0.help_save_iou import iou_train    
 # import torch
-import neld_fun_0.help_neld_train_test as hntt
+import beinn.neld_fun_0.help_neld_train_test as hntt
 import random
 np.random.seed(42)
 tf.random.set_seed(42)
@@ -230,7 +230,7 @@ class model_pred( hntt.train_test_tf):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic 
-        from neld_fun_2.help_pinn_data_fun import pinn_data 
+        from beinn.neld_fun_2.help_pinn_data_fun import pinn_data 
         time_start = time.time()
         dict_mesh_to_skeleton_finder_mesh=dict_mesh_to_skeleton_finder_mesh or self.dict_mesh_to_skeleton_finder_mesh
         path_train=path_train or self.path_train
@@ -573,7 +573,7 @@ class model_pred( hntt.train_test_tf):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic 
-        from neld_fun_2.help_pinn_data_fun import pinn_data 
+        from beinn.neld_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_graph_center ---- started')
         print('==========================================================')
         time_start = time.time()
@@ -641,7 +641,7 @@ class model_pred( hntt.train_test_tf):
                         param_dic=None,
                         ): 
         param_dic=param_dic if param_dic is not None else self.param_dic
-        from neld_fun_2.help_pinn_data_fun import pinn_data 
+        from beinn.neld_fun_2.help_pinn_data_fun import pinn_data 
         print(' get_cylinder_heatmap ---- started')
         time_start = time.time()
         path_train=path_train or self.path_train

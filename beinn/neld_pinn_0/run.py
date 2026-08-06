@@ -2,8 +2,8 @@
 from time import time
 import numpy as np
 import copy
-from neld_pinn_0.CompFun import Fun
-from neld_pinn_0.param import PBCs,particles,saves 
+from beinn.neld_pinn_0.CompFun import Fun
+from beinn.neld_pinn_0.param import PBCs,particles,saves 
 
 '''
 import tensorflow as tf 
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from help_fun import aka_grad
 from Graph import mygraph
 from help_fun import aka_fun,help_fun
-from NELD_PINN import lang_loss, neld_coef
+from beinn.neld_pinn import lang_loss, neld_coef
 from PINN import PINN, aka_train
 '''
 

@@ -4,7 +4,7 @@ import sys,os,dash
  
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from neld_fun_0.help_app import DSAPage
+from beinn.neld_fun_0.help_app import DSAPage
 
 from neld_data_1 import  dnn_modes
 dash.register_page(

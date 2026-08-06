@@ -1,11 +1,11 @@
 import numpy as np
 import time 
-from neld_pinn_0.help_fun import help_fun
+from beinn.neld_pinn_0.help_fun import help_fun
 import copy
 
 
 
-from neld_pinn_0.integrator import Integrator
+from beinn.neld_pinn_0.integrator import Integrator
 class Fun(Integrator):
     def __init__(self):
         Integrator.__init__(self)

@@ -3,7 +3,7 @@
 import sys
 import os
 import numpy as np
-import neld_fun_0.help_funn as hff  
+import beinn.neld_fun_0.help_funn as hff  
 from scipy.interpolate import splprep, splev 
 
 from scipy.spatial import  distance_matrix
@@ -92,7 +92,7 @@ def get_aligned_points(vertices, line_num_points=100, spline_smooth=0):
   
 
 import pickle
-from neld_fun_0.get_path import get_name,get_param
+from beinn.neld_fun_0.get_path import get_name,get_param
 
 
 class pinn_data(get_name,get_param):

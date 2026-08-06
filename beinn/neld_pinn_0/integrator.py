@@ -2,7 +2,7 @@
 
 import numpy as np
 import time 
-from neld_pinn_0.help_fun import help_fun
+from beinn.neld_pinn_0.help_fun import help_fun
 import copy
 
 class Integrator(help_fun):

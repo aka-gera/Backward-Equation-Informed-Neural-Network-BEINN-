@@ -2132,7 +2132,7 @@ def get_path_train(data_head, dest_head, data_sufix, dest_sufix, data_dir, dest_
 
 
  
-from neld_fun_0.get_path import get_path_train,get_name,get_model_name
+from beinn.neld_fun_0.get_path import get_path_train,get_name,get_model_name
 
 
 class get_data_mode(get_name,get_model_name):

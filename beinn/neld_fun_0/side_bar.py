@@ -237,7 +237,7 @@ import sys,os,dash
  
 sys.path.append(os.path.abspath(os.getcwd()))
 
-from neld_fun_0.help_app import DSAPage
+from beinn.neld_fun_0.help_app import DSAPage
 
 dash.register_page(
     __name__,
@@ -333,7 +333,7 @@ def get_text_dash_dnn(page_name,page_dir_txt,dash_pages_path,
 
 import os, sys ,dash 
 sys.path.append(os.getcwd() ) 
-from neld_fun_0.side_bar import sidebar ,get_dnn,dnn_page 
+from beinn.neld_fun_0.side_bar import sidebar ,get_dnn,dnn_page 
 
 
 page_dir= '/{page_dir_txt}' 
@@ -458,7 +458,7 @@ sys.path.append(os.path.abspath(os.getcwd()))
 import dash_bootstrap_components as dbc
 from dash import Dash, html
 import webbrowser, threading
-from neld_fun_0.side_bar import header_navbar
+from beinn.neld_fun_0.side_bar import header_navbar
 
 forbidden_page={forbidden_page}
 forbidden_endswith='{forbidden_endswith}'
@@ -655,7 +655,7 @@ import os
 
 file_path_org = os.getcwd() 
      
-sys.path.append(os.path.abspath(os.path.join(file_path_org,'neld_fun')))
+sys.path.append(os.path.abspath(os.path.join(file_path_org,'beinn.neld_fun')))
 file_path_org=os.path.join(os.path.dirname(file_path_org) ,'files')
 
 from app_param_4 import app_param 
@@ -720,7 +720,7 @@ import os, sys ,dash
 file_path_org=os.getcwd()
 sys.path.append(file_path_org ) 
 file_path_org=os.path.join(os.path.dirname(file_path_org) ,'files')
-from  neld_fun_0.app_param_test import app_param
+from  beinn.neld_fun_0.app_param_test import app_param
 from dash import callback  
 
 neld_names = ['{neld_name}']
@@ -806,7 +806,7 @@ def get_text_dash_all(page_name,page_dir_txt,dash_pages_path,
 
 import os, sys ,dash 
 sys.path.append(os.getcwd() ) 
-from  neld_fun_0.side_bar import layout_1
+from  beinn.neld_fun_0.side_bar import layout_1
 
 
 page_dir= '/{page_dir_txt}' 

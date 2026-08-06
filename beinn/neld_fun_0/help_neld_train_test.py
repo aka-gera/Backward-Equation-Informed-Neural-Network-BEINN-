@@ -34,10 +34,10 @@ random.seed(42)
 device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"  
 from tqdm import tqdm 
  
-import neld_fun_0.help_funn as hff   
+import beinn.neld_fun_0.help_funn as hff   
 
 
-from neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files
+from beinn.neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files
  
 
 
@@ -398,7 +398,7 @@ class train_test_tf(get_files,get_name):
         index_save_dir = index_save_dir or  model_dirs['index_save'] 
         # model_dir = model_dir or  model_dirs['model']   
 
-        # from neld_pinn_0.run_1 import aka_grad ,lang_loss, neld_coef,get_neld_data_train
+        # from beinn.neld_pinn_0.run_1 import aka_grad ,lang_loss, neld_coef,get_neld_data_train
 
         run_module = importlib.import_module(path_dict['run']) 
         lang_loss = run_module.lang_loss
@@ -406,7 +406,7 @@ class train_test_tf(get_files,get_name):
         get_neld_data_train = run_module.get_neld_data_train
         aka_grad = run_module.aka_grad
 
-        from neld_pinn_0.NELD_PINN import aka_train_md 
+        from beinn.neld_pinn_0.beinn.neld_pinn import aka_train_md 
         # from PINN import PINN, aka_train
 
         train_neld_param=self.data_mode['pinn']
@@ -427,7 +427,7 @@ class train_test_tf(get_files,get_name):
  
         adj_train =[] 
 
-        from neld_fun_0.help_dnn_one_hot import Get_iou,model_choice,get_auc,model_metric
+        from beinn.neld_fun_0.help_dnn_one_hot import Get_iou,model_choice,get_auc,model_metric
         with tf.device(device):
             mchoice = model_choice(model_type=model_type,
                                    n_classes=n_classes,
@@ -689,9 +689,9 @@ class train_test_tf(get_files,get_name):
         rhs_name='rhs_name'
         n_col=n_col or len(self.model_dir_path[pre_portion][rhs_name])  
  
-        # from neld_fun_0.help_dnn_one_hot import model_choice  
-        # from neld_pinn_0.run_1 import lang_loss, neld_coef,get_neld_data_train,aka_grad
-        from neld_fun_0.help_dnn_one_hot import model_choice  
+        # from beinn.neld_fun_0.help_dnn_one_hot import model_choice  
+        # from beinn.neld_pinn_0.run_1 import lang_loss, neld_coef,get_neld_data_train,aka_grad
+        from beinn.neld_fun_0.help_dnn_one_hot import model_choice  
 
         run_module = importlib.import_module(path_dict['run'])
  
@@ -1069,7 +1069,7 @@ class train_test_tf(get_files,get_name):
         lss=np.arange(len(curv),dtype=int) 
         adj_train =[] 
 
-        from neld_fun_0.help_pnet_one_hot import LOSS,aka_train,Get_iou,model_choice,get_auc
+        from beinn.neld_fun_0.help_pnet_one_hot import LOSS,aka_train,Get_iou,model_choice,get_auc
         with tf.device(device):
             mchoice = model_choice()
             model = mchoice.get_model(model_type=model_type, )
@@ -1243,7 +1243,7 @@ class train_test_tf(get_files,get_name):
 
  
         if model_type.startswith('pnet'):
-            from neld_fun_0.help_pnet_one_hot import model_choice  
+            from beinn.neld_fun_0.help_pnet_one_hot import model_choice  
 
         with tf.device(device):
             mchoice = model_choice(model_type=model_type)
@@ -1452,13 +1452,13 @@ class train_test_tf(get_files,get_name):
         else:
             model_type_l=model_type
             if model_type.startswith(('gcn',)):
-                from neld_fun_0.help_gcn_one_hot import model_choice
+                from beinn.neld_fun_0.help_gcn_one_hot import model_choice
                 adj_tf=True 
             elif model_type.startswith('dnn'):
-                from neld_fun_0.help_dnn_one_hot import model_choice 
+                from beinn.neld_fun_0.help_dnn_one_hot import model_choice 
                 adj_tf=False 
             elif model_type.startswith(('cnn','vol',)):
-                from neld_fun_0.help_vol_one_hot import model_choice 
+                from beinn.neld_fun_0.help_vol_one_hot import model_choice 
                 mmnn=['vol']
                 mmnn.extend(model_type.split('_')[1:])
                 model_type_l='_'.join(mmnn)

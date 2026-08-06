@@ -16,9 +16,9 @@ file_path_org=os.getcwd()
 file_path_org=os.path.join(os.path.dirname(file_path_org) ,'files') 
 DTYPE='float32'  
    
-from neld_fun_0.help_model_pred import model_pred 
-from neld_fun_0.get_path import get_path_train,get_data_mode  
-from neld_fun_0.side_bar import  dnn_page
+from beinn.neld_fun_0.help_model_pred import model_pred 
+from beinn.neld_fun_0.get_path import get_path_train,get_data_mode  
+from beinn.neld_fun_0.side_bar import  dnn_page
 
 file_path_parent=os.path.dirname(file_path_org)
 file_path_parent=os.path.join(file_path_parent,'meshes','meshes')

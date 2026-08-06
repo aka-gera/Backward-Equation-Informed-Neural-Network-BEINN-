@@ -7,7 +7,7 @@ import pickle
 from dash import dcc, html, dash_table, Input, Output, State, callback 
 import dash_bootstrap_components as dbc
 import numpy as np  
-from neld_fun_0.get_path import get_files,get_app_param ,safe_id  
+from beinn.neld_fun_0.get_path import get_files,get_app_param ,safe_id  
 
 
 
@@ -153,7 +153,7 @@ class get_layout:
 
  
 
-from neld_fun_0.app_get_pinn_neld import class_data
+from beinn.neld_fun_0.app_get_pinn_neld import class_data
 
 
 import random

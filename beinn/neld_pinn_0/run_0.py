@@ -2,8 +2,8 @@
 from time import time
 import numpy as np
 import copy
-from neld_pinn_0.CompFun import Fun
-from neld_pinn_0.param import PBCs,particles,saves 
+from beinn.neld_pinn_0.CompFun import Fun
+from beinn.neld_pinn_0.param import PBCs,particles,saves 
 
 '''
 import tensorflow as tf 
@@ -13,7 +13,7 @@ import matplotlib.pyplot as plt
 from help_fun import aka_grad
 from Graph import mygraph
 from help_fun import aka_fun,help_fun
-from NELD_PINN import lang_loss, neld_coef
+from beinn.neld_pinn import lang_loss, neld_coef
 from PINN import PINN, aka_train
 '''
 
@@ -214,12 +214,12 @@ import pickle
 
 
 
-# from neld_pinn_0.help_fun import aka_fun,help_fun,get_sample_indices
-# from neld_pinn_0.NELD_PINN import neld_coef
+# from beinn.neld_pinn_0.help_fun import aka_fun,help_fun,get_sample_indices
+# from beinn.neld_pinn_0.beinn.neld_pinn import neld_coef
 
 
-from neld_pinn_0.CompFun import Fun
-from neld_pinn_0.help_fun import get_sample_indices
+from beinn.neld_pinn_0.CompFun import Fun
+from beinn.neld_pinn_0.help_fun import get_sample_indices
 
 def rhs_g(qq=None,pp=None,ff=None,name=None,vol=None): 
     if name =='momen':
@@ -717,7 +717,7 @@ class lang_loss():
 
 
 import numpy as np
-from neld_pinn_0.param import PBCs
+from beinn.neld_pinn_0.param import PBCs
 
 class neld_coef(PBCs):
     def __init__(self,par,

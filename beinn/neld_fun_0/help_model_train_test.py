@@ -34,13 +34,13 @@ random.seed(42)
 device = "/GPU:0" if tf.config.list_physical_devices('GPU') else "/CPU:0"  
 from tqdm import tqdm 
 
-from neld_fun_0.help_save_iou import iou_train 
-from neld_fun_0.help_pinn_data_fun import pinn_data 
-from neld_fun_2.help_pinn_data_fun import pinn_data 
-import neld_fun_0.help_funn as hff   
+from beinn.neld_fun_0.help_save_iou import iou_train 
+from beinn.neld_fun_0.help_pinn_data_fun import pinn_data 
+from beinn.neld_fun_2.help_pinn_data_fun import pinn_data 
+import beinn.neld_fun_0.help_funn as hff   
 
 
-from neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files
+from beinn.neld_fun_0.get_path import assign_if_none,get_name,get_param,get_files
  
 
 
@@ -445,7 +445,7 @@ class train_test_tf(get_files,get_name):
             iou_save = np.loadtxt(iou_save_dir, dtype=float).tolist() 
             
 
-        from neld_fun_0.aka_ML_finder import aka_classification
+        from beinn.neld_fun_0.aka_ML_finder import aka_classification
 
         print(f"Using device: {device}")
         aka_train_ = aka_classification()
@@ -976,7 +976,7 @@ class train_test_tf(get_files,get_name):
         adj_train =[] 
         adj_train =[adj[i] for i in ls]
   
-        from neld_fun_0.help_gcn_one_hot import LOSS,aka_train,Get_iou,model_choice,model_metric
+        from beinn.neld_fun_0.help_gcn_one_hot import LOSS,aka_train,Get_iou,model_choice,model_metric
 
         with tf.device(device):
             mchoice = model_choice(model_type=model_type, )
@@ -1196,7 +1196,7 @@ class train_test_tf(get_files,get_name):
         n_col=n_col or len(self.model_dir_path[pre_portion][rhs_name]) 
         print('-------------',n_col,model_dir)
 
-        from neld_fun_0.help_gcn_one_hot import model_choice
+        from beinn.neld_fun_0.help_gcn_one_hot import model_choice
         mchoice = model_choice()
         custom = mchoice.get_custom_objects(model_type) 
         model = load_model(model_dir, custom_objects=custom)
@@ -1367,8 +1367,8 @@ class train_test_tf(get_files,get_name):
         spline_smooth_hmod = spline_smooth_hmod or self.spline_smooth_hmod
         neld_names = neld_names if neld_names is not None else self.neld_names
         DTYPE=DTYPE or self.DTYPE 
-        from neld_fun_0.help_data_volume import mesh_without_vertices,get_report,plot_slice, mesh_to_volume,plot_voxel_volume,vol_cropper
-        from neld_fun_0.help_cnn_one_hot import model_choice
+        from beinn.neld_fun_0.help_data_volume import mesh_without_vertices,get_report,plot_slice, mesh_to_volume,plot_voxel_volume,vol_cropper
+        from beinn.neld_fun_0.help_cnn_one_hot import model_choice
 
         mchoice = model_choice(model_type=model_type,)
         cropper_params = mchoice.get_cropper_params( )
@@ -1543,7 +1543,7 @@ class train_test_tf(get_files,get_name):
         model_dir = model_dir or  model_dirs['model']   
 
 
-        from neld_fun_0.help_cnn_one_hot import vol_UNet3D,LOSS,aka_train,vol_FastFCN3D,model_choice,Get_iou,get_auc,model_metric
+        from beinn.neld_fun_0.help_cnn_one_hot import vol_UNet3D,LOSS,aka_train,vol_FastFCN3D,model_choice,Get_iou,get_auc,model_metric
 
 
 
@@ -1786,7 +1786,7 @@ class train_test_tf(get_files,get_name):
         iou_save_dir = iou_save_dir or  model_dirs['iou'] 
         model_dir = model_dir or  model_dirs['model']   
 
-        from neld_fun_0.help_vol_one_hot import model_choice 
+        from beinn.neld_fun_0.help_vol_one_hot import model_choice 
 
 
         mchoice = model_choice(model_type=model_type)
@@ -2188,7 +2188,7 @@ class train_test_tf(get_files,get_name):
         neld_train=[neld[i] for i in ls]
         lss=np.arange(len(curv),dtype=int) 
         adj_train =[] 
-        from neld_fun_0.help_dnn_one_hot import LOSS,aka_train,Get_iou,model_choice,get_auc,model_metric
+        from beinn.neld_fun_0.help_dnn_one_hot import LOSS,aka_train,Get_iou,model_choice,get_auc,model_metric
         with tf.device(device):
             mchoice = model_choice(model_type=model_type,n_classes=rhs[0].shape[1] )
             model = mchoice.get_model() 
@@ -2419,7 +2419,7 @@ class train_test_tf(get_files,get_name):
 
  
         if model_type.startswith(('dnn',)):
-            from neld_fun_0.help_dnn_one_hot import model_choice  
+            from beinn.neld_fun_0.help_dnn_one_hot import model_choice  
         n_classes= 3 if pre_portion=='neck_head' else 2
         mchoice = model_choice(model_type=model_type,n_classes=n_classes)
         custom = mchoice.get_custom_objects(model_type) 
@@ -2773,7 +2773,7 @@ class train_test_tf(get_files,get_name):
         lss=np.arange(len(curv),dtype=int) 
         adj_train =[] 
 
-        from neld_fun_0.help_pnet_one_hot import LOSS,aka_train,Get_iou,model_choice,get_auc
+        from beinn.neld_fun_0.help_pnet_one_hot import LOSS,aka_train,Get_iou,model_choice,get_auc
         with tf.device(device):
             mchoice = model_choice()
             model = mchoice.get_model(model_type=model_type, )
@@ -2947,7 +2947,7 @@ class train_test_tf(get_files,get_name):
 
  
         if model_type.startswith('pnet'):
-            from neld_fun_0.help_pnet_one_hot import model_choice  
+            from beinn.neld_fun_0.help_pnet_one_hot import model_choice  
 
         with tf.device(device):
             mchoice = model_choice(model_type=model_type)
@@ -3246,10 +3246,10 @@ class train_test_tf(get_files,get_name):
         model_dir = model_dir or  model_dirs['model']   
   
         if model_type.startswith('pinn'):
-            from neld_fun_0.help_pinn_one_hot import LOSS,PINN,aka_train,Get_iou 
+            from beinn.neld_fun_0.help_pinn_one_hot import LOSS,PINN,aka_train,Get_iou 
             adj_tf=False
         elif model_type.startswith('rpinn'):
-            from neld_fun_0.help_pinn_rein_one_hot  import LOSS,PINN,aka_train,Get_iou 
+            from beinn.neld_fun_0.help_pinn_rein_one_hot  import LOSS,PINN,aka_train,Get_iou 
             adj_tf=False
 
  
@@ -3469,10 +3469,10 @@ class train_test_tf(get_files,get_name):
 
  
         if model_type.startswith('pinn'):
-            from neld_fun_0.help_pinn_one_hot import PINN 
+            from beinn.neld_fun_0.help_pinn_one_hot import PINN 
             adj_tf=False 
         elif model_type.startswith('rpinn'):
-            from neld_fun_0.help_pinn_rein_one_hot import LOSS,PINN,aka_train,Get_iou 
+            from beinn.neld_fun_0.help_pinn_rein_one_hot import LOSS,PINN,aka_train,Get_iou 
             adj_tf=False
 
 
@@ -3790,13 +3790,13 @@ class train_test_tf(get_files,get_name):
         model_dir = model_dir or  model_dirs['model']   
  
         if model_type=='gcn':
-            from neld_fun_0.help_gcn_one_hot import LOSS,PINN,aka_train,Get_iou 
+            from beinn.neld_fun_0.help_gcn_one_hot import LOSS,PINN,aka_train,Get_iou 
             adj_tf=True
         elif model_type.startswith('pinn'):
-            from neld_fun_0.help_pinn_one_hot import LOSS,PINN,aka_train,Get_iou 
+            from beinn.neld_fun_0.help_pinn_one_hot import LOSS,PINN,aka_train,Get_iou 
             adj_tf=False
         elif model_type.startswith('rpinn'):
-            from neld_fun_0.help_pinn_rein_one_hot  import LOSS,PINN,aka_train,Get_iou 
+            from beinn.neld_fun_0.help_pinn_rein_one_hot  import LOSS,PINN,aka_train,Get_iou 
             adj_tf=False
 
  
@@ -4021,13 +4021,13 @@ class train_test_tf(get_files,get_name):
 
         else:
             if model_type.startswith('gcn'):
-                from neld_fun_0.help_gcn_one_hot import PINN ,run_model_on_graph
+                from beinn.neld_fun_0.help_gcn_one_hot import PINN ,run_model_on_graph
                 adj_tf=True
             elif model_type.startswith('pinn'):
-                from neld_fun_0.help_pinn_one_hot import PINN 
+                from beinn.neld_fun_0.help_pinn_one_hot import PINN 
                 adj_tf=False 
             elif model_type.startswith('rpinn'):
-                from neld_fun_0.help_pinn_rein_one_hot import LOSS,PINN,aka_train,Get_iou 
+                from beinn.neld_fun_0.help_pinn_rein_one_hot import LOSS,PINN,aka_train,Get_iou 
                 adj_tf=False
 
 
@@ -4274,13 +4274,13 @@ class train_test_tf(get_files,get_name):
         else:
             model_type_l=model_type
             if model_type.startswith(('gcn',)):
-                from neld_fun_0.help_gcn_one_hot import model_choice
+                from beinn.neld_fun_0.help_gcn_one_hot import model_choice
                 adj_tf=True 
             elif model_type.startswith('dnn'):
-                from neld_fun_0.help_dnn_one_hot import model_choice 
+                from beinn.neld_fun_0.help_dnn_one_hot import model_choice 
                 adj_tf=False 
             elif model_type.startswith(('cnn','vol',)):
-                from neld_fun_0.help_vol_one_hot import model_choice 
+                from beinn.neld_fun_0.help_vol_one_hot import model_choice 
                 mmnn=['vol']
                 mmnn.extend(model_type.split('_')[1:])
                 model_type_l='_'.join(mmnn)

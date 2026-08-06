@@ -8,19 +8,19 @@ import pickle
 from dash import dcc, html, dash_table, Input, Output, State, callback 
 import dash_bootstrap_components as dbc
 import numpy as np
-import neld_fun_0.curvature as cu  
-from neld_fun_0.help_funn import get_color
-import neld_fun_0.help_fun as hf
+import beinn.neld_fun_0.curvature as cu  
+from beinn.neld_fun_0.help_funn import get_color
+import beinn.neld_fun_0.help_fun as hf
 # import geometry as geo
 # import help_plotly as hpp
-import neld_fun_0.help_plotly as hp
-from neld_fun_0.help_plotly import aka_plot 
+import beinn.neld_fun_0.help_plotly as hp
+from beinn.neld_fun_0.help_plotly import aka_plot 
 # import density as den
 import plotly.graph_objects as go 
-import neld_fun_0.help_funn as hff
-from neld_fun_0.get_path import get_files,get_app_param ,safe_id 
-from neld_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
-from neld_fun_0.help_save_iou import iou_train
+import beinn.neld_fun_0.help_funn as hff
+from beinn.neld_fun_0.get_path import get_files,get_app_param ,safe_id 
+from beinn.neld_fun_0.help_graph import get_iou_graph,get_cm_iou,compute_kl 
+from beinn.neld_fun_0.help_save_iou import iou_train
 import pandas as pd
 import pickle
 from sklearn.metrics import roc_curve, auc
@@ -917,8 +917,8 @@ class class_data:
         elif mode =='INV_MEASURE':
             ii=nbin
             import pickle
-            from neld_pinn_0.help_fun import aka_fun
-            from neld_pinn_0.Graph import mygraph
+            from beinn.neld_pinn_0.help_fun import aka_fun
+            from beinn.neld_pinn_0.Graph import mygraph
 
             path_gen=self.obj_org_path
             path_init_param=os.path.join(path_gen,f"param.pkl")
