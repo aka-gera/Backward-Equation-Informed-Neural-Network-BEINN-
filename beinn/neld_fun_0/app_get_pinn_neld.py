@@ -601,7 +601,8 @@ class class_data:
             tf_mean=self.train_neld_param['tf_mean']
             path_1=self.neld_path_org_new
             path_gen=self.obj_org_path.split('\\')
-            path_gen=os.path.join(*path_gen)
+
+            path_gen=os.path.dirname(os.path.join(*path_gen))
             path_init_param=os.path.join(path_gen,f"param.pkl")
             import pickle
             with open(path_init_param, "rb") as f:
@@ -664,120 +665,7 @@ class class_data:
 
 
 
-
-
-
-
-
-            '''
-
-        elif mode=='logit':
-            print('[[[[[[[[[[[--------------------------logit]]]]]]]]]]]')
-            dic={
-                v:{
-                    n:{
-                        None
-                    } for n in ['initial','final']
-                } for v in ['inference','true']
-            }
-            self.hist_slider['min']=-1
-            self.hist_slider['max']=10
-            self.hist_slider['step']=1
-            self.hist_slider['value']=10
-            self.hist_slider['marks']={i: f'{i}' for i in range(-1, 10, 2)}
-
-            path_1=self.neld_path_org_new
-            path_init_param=os.path.join(self.obj_org_path,f"param.pkl")
-            import pickle
-            with open(path_init_param, "rb") as f:
-                pm = pickle.load(f) 
-            time=np.loadtxt(os.path.join(path_1,f"time.txt"),dtype=float)
-            nnn=time.shape[0]
-            scatterr=[] 
-
-            ii=nbin
-            nn=nnn
-            ntim,mtim=1+nn*ii-1,nn*(ii+1)
-            print('[[[[nn]]]]',ii,nn,[ntim,mtim])
-            subplot_titles = ("Initial", "Final")
-            figure = akp.Plotly_Figure_Sub(
-                subplot_titles,
-                rows=1,
-                cols=2,
-                shared_xaxes=False,
-                shared_yaxes=False
-            )
-            row=1
-            for col, kk in enumerate(['initial', 'final'], start=1):
-
-                # -------- inference --------
-                ku = 'inference'
-                tyy = self.intensity_logit_dict[ku][col-1]
-                cpath=self.path_file_sub[tyy][id_path]
-                if os.path.exists(cpath): 
-                    snn=np.loadtxt(cpath, dtype=float)
-                    for ii in range(pm.Nperiod-1):
-                        ntimi,mtimi=1+pm.nPart*pm.dimm*ii-1,pm.nPart*pm.dimm*(ii+1)
-                        skl_path = np.sum(snn[:,ntimi:mtimi],axis=1)
-                        print('[[[]]]',[skl_path.shape  if kk == 'initial' else skl_path[ntim:mtim].shape])
-                        points = np.column_stack((skl_path, time)) if kk == 'initial' else np.column_stack((skl_path[ntim:mtim], time))
-                        figure.add_trace(
-                            hf.plotly_scatter(
-                                points=points,
-                                color='red' if kk == 'initial' else 'blue',
-                                size=5.3,
-                                symbol="circle" if ku == "true" else "cross",
-                                name=f'Inference-{kk}--period-{ii+1}',
-                                opacity=0.5
-                            ),
-                            row=row, col=col
-                        )
-
-                # -------- true --------
-                ku = 'true'
-                tyy = self.intensity_logit_dict[ku][col-1]
-                cpath=self.path_file_sub[tyy][id_path]
-                if os.path.exists(cpath):
-                    snn=np.loadtxt(cpath, dtype=float)
-                    for ii in range(pm.Nperiod-1):
-                        ntimi,mtimi=1+pm.nPart*pm.dimm*ii-1,pm.nPart*pm.dimm*(ii+1)
-                        skl_path = np.sum(snn[:,ntimi:mtimi],axis=1)
-
-                        points = np.column_stack((skl_path, time)) if kk == 'initial' else np.column_stack((skl_path[ntim:mtim], time))
-                        figure.add_trace(
-                            hf.plotly_scatter(
-                                points=points,
-                                color='green' if kk == 'initial' else 'purple',
-                                size=5.3,
-                                symbol="circle" if ku == "true" else "cross",
-                                name=f'True-{kk}--period-{ii+1}',
-                                opacity=0.5
-                            ),
-                            row=row, col=col
-                        )
-
-            figure.update_xaxes(title_text="BE", row=1, col=2)
-            figure.update_yaxes(title_text="Time", row=1, col=1)
-            figure.update_yaxes(title_text="Time", row=1, col=2)
-
-            figure.update_layout(
-                legend=dict(groupclick="toggleitem")
-            )
-            figure.update_layout(self.layout)
-            figure.update_layout(scene=self.scene)
-
-
-
-
-
-
-'''
-
-
-
-
-
-
+ 
  
 
 
