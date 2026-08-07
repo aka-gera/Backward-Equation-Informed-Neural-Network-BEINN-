@@ -602,7 +602,7 @@ class class_data:
             path_1=self.neld_path_org_new
             path_gen=self.obj_org_path.split('\\')
 
-            path_gen=os.path.dirname(os.path.join(*path_gen))
+            path_gen=os.path.join(*path_gen)
             path_init_param=os.path.join(path_gen,f"param.pkl")
             import pickle
             with open(path_init_param, "rb") as f:
