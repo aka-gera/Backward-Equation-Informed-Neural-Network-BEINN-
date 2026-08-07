@@ -596,8 +596,10 @@ class class_data:
             path_gen=os.path.join(*path_gen)
             path_init_param=os.path.join(path_gen,f"param.pkl")
             with open(path_init_param, "rb") as f:
-                pm = pickle.load(f)
-            path_1=self.neld_path_org_new
+                pm = pickle.load(f) 
+            path_1=self.neld_path_org_new.split('\\')
+            path_1=os.path.join(*path_gen)
+            print( '[[[[[[[[[[[[[=========]]]]]]]]]]]]]',path_1)
             time=np.loadtxt(os.path.join(path_1,f"time.txt"),dtype=float)
             qq=np.loadtxt(os.path.join(path_1,f"qq_{ii}.txt"),dtype=float)
 
