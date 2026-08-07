@@ -8,7 +8,7 @@ nams=[]
 
 path_heads_show=[]
 paraws={}
-params={mm:[] for mm in ['dnn_modes','nam_gen','path_heads_show','nam']}
+params={mm:[] for mm in ['dnn_modes','nam_gen','path_heads_show','nam','file_path_org']}
 
 paraw={mm:[] for mm in ['dict_param','gdas']}
 
@@ -62,7 +62,8 @@ paraws[nam_gen]=paraw
 
 
 
-from beinn.neld_data_harmonic_2_shear import gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,N,Nperiod,nma,g_names,dnn_modes,nam
+from beinn.neld_data_harmonic_2_shear import (gdas,param_flow,nam_gen,dict_param,data_dir,Nmarkov,
+                                              N,Nperiod,nma,g_names,dnn_modes,nam,file_path_org)
   
 
 path_dict={'run':'beinn.neld_pinn_0.run_00'}
@@ -74,6 +75,7 @@ dict_param['path_heads_show']=[f'dnn_PINN_NELD___{nam}',f'dnn_PINN_NELD___{namt}
 params['dnn_modes'].extend(dnn_modes)
 params['path_heads_show'].extend(dict_param['path_heads_show'])
 params['nam'].append(nam)
+params['file_path_org']=file_path_org
 
 paraw={mm:[] for mm in ['dict_param','gdas','path_dict','nam_gen']}
 paraw['dict_param']=dict_param
