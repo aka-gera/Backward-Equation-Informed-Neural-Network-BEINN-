@@ -595,7 +595,8 @@ class class_data:
             from beinn.neld_pinn_0.help_fun import aka_fun
             from beinn.neld_pinn_0.Graph import mygraph
 
-            path_gen=self.obj_org_path
+            path_gen=self.obj_org_path.split('\\')
+            path_gen=os.path.join(*path_gen)
             path_init_param=os.path.join(path_gen,f"param.pkl")
             with open(path_init_param, "rb") as f:
                 pm = pickle.load(f)
@@ -642,11 +643,13 @@ class class_data:
             rhs_dim=self.train_neld_param['rhs_dim']
             tf_mean=self.train_neld_param['tf_mean']
             path_1=self.neld_path_org_new
-            path_init_param=os.path.join(self.obj_org_path,f"param.pkl")
+            path_gen=self.obj_org_path.split('\\')
+            path_gen=os.path.join(*path_gen)
+            path_init_param=os.path.join(path_gen,f"param.pkl")
             import pickle
             with open(path_init_param, "rb") as f:
                 pm = pickle.load(f) 
-            time=np.loadtxt(os.path.join(self.obj_org_path,f"time.txt"),dtype=float)
+            time=np.loadtxt(os.path.join(path_gen,f"time.txt"),dtype=float)
             nnn=time.shape[0]
             scatterr=[] 
 
