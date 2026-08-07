@@ -558,33 +558,7 @@ class class_data:
                 for val in self.plot_data_center_curv[id_path][clusts][1:]:
                     scatterr.append(val)
                 figure=akp.Plotly_Figure(data= scatterr, layout=self.layout)
-                figure.update_layout(scene=self.scene)   
-        elif mode in ['heatmap_cylinder','heatmap_cylinder_surface']:
-            if self.plot_data_cylinder_heatmap is not None: 
-                *pathc, last = path.split('_') 
-                if mode =='heatmap_cylinder':
-                    data=[self.plot_data_cylinder_heatmap[id_path].density_heatmap,self.plot_data_cylinder_heatmap[id_path].density_heatmap_points,self.plot_data_cylinder_heatmap[id_path].density_heatmap_points_org]
-                    figure=akp.Plotly_Figure(data= data, layout=self.layout) 
-                    figure.update_layout(
-                        xaxis=dict(showgrid=False),  
-                        yaxis=dict(showgrid=False)  
-                    ) 
-                elif mode =='heatmap_cylinder_surface':
-                    data=[self.plot_data_cylinder_heatmap[id_path].density_heatmap_surface]
-                    data.extend(self.plot_data_cylinder_heatmap[id_path].density_org_points)
-                    figure=akp.Plotly_Figure(data= data, layout=self.layout)
-                figure.update_layout(scene=self.scene)
-        elif mode=='IOU':
-            # if self.plot_data_iou  is not None: 
-            #     figure=akp.Plotly_Figure(data= self.plot_data_iou, layout=self.layout)
-            #     figure.update_layout(scene=self.scene)  
-            if  len(self.plot_data_iou_dic)>0:  
-
-                figure=akp.Plotly_Figure(data= self.plot_data_iou_dic[id_pathss] , layout=self.layout)
-                figure.update_layout(scene=self.scene) 
-
-
-
+                figure.update_layout(scene=self.scene)    
 
         elif mode =='INV_MEASURE':
             ii=nbin
@@ -597,11 +571,11 @@ class class_data:
             path_init_param=os.path.join(path_gen,f"param.pkl")
             with open(path_init_param, "rb") as f:
                 pm = pickle.load(f) 
-            path_1=self.neld_path_org_new.split('\\')
-            path_1=os.path.join(*path_gen)
-            print( '[[[[[[[[[[[[[=========]]]]]]]]]]]]]',path_1)
-            time=np.loadtxt(os.path.join(path_1,f"time.txt"),dtype=float)
-            qq=np.loadtxt(os.path.join(path_1,f"qq_{ii}.txt"),dtype=float)
+            path_1=self.neld_path_org_new
+
+            time=np.loadtxt(os.path.join(path_1,f"time.txt").replace('\\','/'),dtype=float)
+            qq=np.loadtxt(os.path.join(path_1,f"qq_{ii}.txt").replace('\\','/'),dtype=float)
+
 
             Ntime= pm.N
             Ndim = pm.dim
