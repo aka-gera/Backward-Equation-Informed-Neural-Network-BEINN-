@@ -542,24 +542,7 @@ class class_data:
         if mode=='algorithm':
             figure=  self.figure_3d 
 
-
-        elif mode=='comparison':
-            figure=akp.Plotly_Figure(data=self.scatter, layout=self.layout)
-            figure.update_layout(scene=self.scene)  
-        elif mode=='skeleton':
-            if self.plot_data_center_curv is not None:  
-                scatterr=self.plot_data_center_curv[id_path][clusts][0:1]
-                skl_path=os.path.join(self.file_path_feat, self.txt_skl_vertices)
-                if os.path.exists(skl_path): 
-                    scatterr.append(hf.plotly_scatter(points=np.loadtxt(skl_path,dtype=float), color='yellow', size=5.3, name='skeleton smooth.',opacity=0.5))
-                skl_path=os.path.join(self.file_path_feat, self.txt_skl_vertices_org)
-                if os.path.exists(skl_path): 
-                    scatterr.append(hf.plotly_scatter(points=np.loadtxt(skl_path,dtype=float), color='green', size=5.3, name='skeleton init.',opacity=0.5))
-                for val in self.plot_data_center_curv[id_path][clusts][1:]:
-                    scatterr.append(val)
-                figure=akp.Plotly_Figure(data= scatterr, layout=self.layout)
-                figure.update_layout(scene=self.scene)    
-
+ 
         elif mode =='INV_MEASURE':
             ii=nbin
             import pickle
@@ -573,6 +556,7 @@ class class_data:
                 pm = pickle.load(f) 
             path_1=self.neld_path_org_new
 
+            path_1=os.path.dirname(self.neld_path_org_new)
             time=np.loadtxt(os.path.join(path_1,f"time.txt").replace('\\','/'),dtype=float)
             qq=np.loadtxt(os.path.join(path_1,f"qq_{ii}.txt").replace('\\','/'),dtype=float)
 
@@ -675,57 +659,7 @@ class class_data:
             # figure.update_layout(title=) 
 
             figure.update_yaxes(title_text="BE" )
-            figure.update_xaxes(title_text="Time", ) 
-  
-            '''
-
-            ku = 'inference'
-            tyy = self.intensity_logit_dict[ku][0]
-            cpath=self.path_file_sub[tyy][id_path]
-            if os.path.exists(cpath): 
-                snn=np.loadtxt(cpath, dtype=float)
-                ran=[0,] if tf_mean else range(rhs_dim['i'],rhs_dim['j']+1)
-                for ii in ran:
-                    ntimi,mtimi=1+pm.nPart*pm.dimm*ii-1,pm.nPart*pm.dimm*(ii+1)
-                    skl_path = np.sum(snn[:,ntimi:mtimi],axis=1)
-                    print('[[[]]]',[skl_path.shape   ])
-                    points = np.column_stack((time,skl_path))  
-                    scatterr.append(
-                        hf.plotly_scatter(
-                            points=points,
-                            color=ccoll[ii] ,
-                            size=14.3,
-                            symbol="circle" ,
-                            name=f'Inference-period-{ii+1}',
-                            opacity=0.2
-                        ) 
-                    )
-
-            # -------- true --------
-            ku = 'true'
-            tyy = self.intensity_logit_dict[ku][0]
-            cpath=self.path_file_sub[tyy][id_path]
-            if os.path.exists(cpath):
-                snn=np.loadtxt(cpath, dtype=float)
-                ran=[0,] if tf_mean else range(rhs_dim['i'],rhs_dim['j']+1)
-                for ii in ran:
-                    ntimi,mtimi=pm.nPart*pm.dimm*ii,pm.nPart*pm.dimm*(ii+1)
-                    skl_path = np.sum(snn[:,ntimi:mtimi],axis=1)
-
-                    points = np.column_stack((time,skl_path))  
-                    scatterr.append(
-                        hf.plotly_scatter(
-                            points=points,
-                            color=ccoll[ii+1] ,
-                            size=8.3,
-                            symbol="cross"  ,
-                            name=f'True-period-{ii+1}',
-                            opacity=0.4
-                        ) 
-                    )
-'''
-
-
+            figure.update_xaxes(title_text="Time", )  
 
 
 
