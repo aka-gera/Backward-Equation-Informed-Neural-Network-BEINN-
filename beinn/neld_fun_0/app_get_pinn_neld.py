@@ -661,7 +661,7 @@ class class_data:
 
             ku,kuu='inference','true' 
             for mn,tyy,tyyy in zip(['initial','final'],self.intensity_logit_dict[ku],self.intensity_logit_dict[kuu]):
-                patth,patthy=self.path_file_sub[tyy][id_path],self.path_file_sub[tyyy][id_path]
+                patth,patthy=self.path_file_sub[tyy][id_path].replace('\\','/'),self.path_file_sub[tyyy][id_path].replace('\\','/')
 
                 print('[[[exist]]]',os.path.exists(patth), os.path.exists(patthy),patth,patthy)
                 if os.path.exists(patth) and os.path.exists(patthy): 
