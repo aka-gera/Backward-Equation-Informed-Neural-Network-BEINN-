@@ -845,7 +845,7 @@ class get_files(get_name,get_param):
         self.txt_true_file=txt_true_file
         self.model_sufix=model_sufix
         self.data_mode=data_mode
-        self.obj_org_path=file_path_org=obj_org_path or self.obj_org_path
+        self.obj_org_path=obj_org_path or self.obj_org_path
         self.obj_org_path_dict=obj_org_path_dict or self.obj_org_path_dict
         self.model_sufix_dic=model_sufix_dic 
         self.path_dir=self.model_sufix_dic.get('path_dir',None) 
@@ -853,11 +853,11 @@ class get_files(get_name,get_param):
         # self.file_path_model=self.file_path_save =os.path.join(file_path_org,'pinn')
         # os.makedirs(self.file_path_model, exist_ok=True) 
         # print('[[[[[[]]]]]]',self.file_path_org,file_path_org)
-        self.file_diff=os.path.relpath(self.obj_org_path, self.file_path_org) 
+        self.file_diff=os.path.relpath(self.obj_org_path, os.path.dirname(self.file_path_org)) 
         # self.file_path_model_data= os.path.join(file_path_org,'data',self.file_diff)
         # mnn=neld_data['cpath']
-        print('[[[[[[[[]]]]]]]]',  file_path_org,self.obj_org_path)
         self.file_path_model_data= os.path.join(file_path_org,'data',*self.neld_data['cpath'])
+        # print('[[[[[[[[]]]]]]]]',self.file_path_model_data, mnn)
         os.makedirs(self.file_path_model_data, exist_ok=True)  
 
 
@@ -2132,7 +2132,7 @@ def get_path_train(data_head, dest_head, data_sufix, dest_sufix, data_dir, dest_
 
 
  
-from beinn.neld_fun_0.get_path import get_path_train,get_name,get_model_name
+from neld_fun_0.get_path import get_path_train,get_name,get_model_name
 
 
 class get_data_mode(get_name,get_model_name):
