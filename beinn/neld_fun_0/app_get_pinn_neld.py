@@ -697,6 +697,7 @@ class class_data:
                             ) 
                         )
 
+                    print('[im here]',scatterr)
             figure=akp.Plotly_Figure(data= scatterr , layout=self.layout)
             figure.update_layout(scene=self.scene) 
             # figure.update_layout(title=) 
